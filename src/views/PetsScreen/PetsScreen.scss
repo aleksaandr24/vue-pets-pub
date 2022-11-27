@@ -1,0 +1,40 @@
+@use '@/assets/styles/common' as *;
+
+.pets {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  column-gap: 40px;
+  padding: 0px 30px 30px 30px;
+
+  @include mq(laptop) {
+    grid-template-columns: 95px 1fr;
+    column-gap: 20px;
+    padding: 0px 25px 25px 25px;
+  }
+
+  @include mq(tablet) {
+    grid-template-columns: none;
+    grid-template-rows: 95px 1fr;
+    row-gap: 30px;
+  }
+  
+  @include mq(mobile) {
+    row-gap: 25px;
+  }
+
+  &__filter {
+    grid-column: 1 / 2;
+
+    @include mq(tablet) {
+      grid-row: 1;
+    }
+  }
+
+  &__catalog {
+    grid-column: 2 / -1;
+    
+    @include mq(tablet) {
+      grid-row: 2;
+    }
+  }
+}

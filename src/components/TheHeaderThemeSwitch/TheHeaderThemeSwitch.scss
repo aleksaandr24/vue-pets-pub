@@ -1,0 +1,92 @@
+@use '@/assets/styles/common' as *;
+
+.theme-switch {
+	display: flex;
+  flex-direction: row;
+
+  &__input {
+    visibility: hidden;
+    height: 0;
+    width: 0;
+
+    &:checked + .theme-switch__label {
+      background-color: var(--color-solid-white);
+      background-image: url('@/assets/images/TheHeaderThemeSwitch/moon.svg');
+      background-repeat: no-repeat;
+      background-position: 15%;
+    }
+  
+    &:checked + .theme-switch__label::after {
+      left: calc(100% - 5px);
+      transform: translateX(-100%);
+      background-image: url('@/assets/images/TheHeaderThemeSwitch/sun.svg');
+    }
+  }
+
+  &__label {
+    display: block;
+    position: relative;
+    width: 110px;
+    height: 46px;
+    margin-right: 10px;
+    border-radius: 20px;
+    background-color: var(--bg-color-secondary);
+    background-image: url('@/assets/images/TheHeaderThemeSwitch/sun-dark.svg');
+    background-repeat: no-repeat;
+    background-position: 85%;
+    text-indent: -9999px;
+    cursor: pointer;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 5px;
+      width: 54px;
+      height: 33px;
+      background-color: var(--color-solid-primary);
+      background-image: url('@/assets/images/TheHeaderThemeSwitch/moon-dark.svg');
+      background-repeat: no-repeat;
+      background-position: center center;
+      border-radius: 16px;
+      transition: 0.4s ease-in-out;
+    }
+  }
+
+  @include mq(laptop) {
+    &__label {
+      width: 95px;
+      
+      &:after {
+        top: 6px;
+        width: 53px;
+        height: 32px;
+      }
+    }
+  }
+
+  @include mq(tablet) {
+    &__label {
+      width: 110px;
+      
+      &:after {
+        top: 7px;
+        width: 54px;
+        height: 33px;
+      }
+    }
+  }
+  
+  @include mq(mobile) {
+    &__label {
+      width: 77px;
+      height: 32px;
+
+      &:after {
+        top: 5px;
+        width: 36px;
+        height: 23px;
+      }
+    }
+  }
+}

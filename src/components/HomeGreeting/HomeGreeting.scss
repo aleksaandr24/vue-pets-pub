@@ -1,0 +1,63 @@
+@use '@/assets/styles/common' as *;
+
+.greeting {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  background-image: 
+    url('@/assets/images/HomeGreeting/home-greeting-picture.png'),
+    url('@/assets/images/HomeGreeting/home-greeting-background.png'),
+    var(--color-gradient-purple);
+  background-repeat: no-repeat;
+  background-size: contain, cover;
+  background-position: right, center;
+  color: var(--color-solid-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  @include mq(laptop) {
+    width: calc(100% - 5px);
+    background-size: 36%, cover;
+  }
+
+  @include mq(tablet) {
+    width: 100%;
+    height: 100%;
+  }
+
+  @include mq(mobile) {
+    width: 100%;
+    height: 100%;
+    background-image: 
+      url('@/assets/images/HomeGreeting/home-greeting-background.png'),
+      var(--color-gradient-purple);
+    background-size: cover;
+  }
+
+  &__title {
+    margin: 30px 30px 20px 30px;
+    font-family: 'Rubik-Medium';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+
+    @include mq(mobile) {
+      font-size: 18px;
+      line-height: 21px;
+    }
+  }
+
+  &__text {
+    margin: 0px 30px 10px 30px;
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 21px;
+
+    @include mq(mobile) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+}

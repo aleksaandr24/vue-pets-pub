@@ -1,0 +1,51 @@
+@use '@/assets/styles/common' as *;
+
+.chat-default {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.937rem;
+  animation-name: chat-default-loading;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+
+  &__text {
+    font-family: 'Rubik-Regular';
+    font-size: 1.125rem;
+    line-height: 1.312rem;
+    text-align: center;
+    color: var(--color-secondary);
+
+    @include mq(mobile) {
+      font-size: 1rem;
+    }
+  }
+
+  &__button {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    color: inherit;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+  }
+}
+
+@keyframes chat-default-loading {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

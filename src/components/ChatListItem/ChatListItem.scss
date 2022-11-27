@@ -1,0 +1,86 @@
+@use '@/assets/styles/common' as *;
+
+.user-chat-item {
+  height: 5.5rem;
+  margin-bottom: .9375rem;
+  padding-inline: 1.25rem;
+  padding-top: 1.25rem;
+  cursor: pointer;
+  transition: background 0.4s ease;
+  display: grid;
+  grid-template-areas: 
+    'chat-item-avatar chat-item-name chat-item-date'
+    'chat-item-avatar chat-item-message chat-item-message';
+  grid-template-columns: 3rem auto minmax(2.125rem, auto);
+  grid-template-rows: 1.1875rem auto;
+  column-gap: 1.0625rem;
+  row-gap: .3125rem;
+
+  @include mq(laptop) {
+    height: 3.5rem;
+    padding-inline: .625rem;
+    padding-top: .75rem;
+    grid-template-columns: 2rem auto minmax(1.875rem, auto);
+    grid-template-rows: 1.0625rem auto;
+  }
+
+  &:hover,
+  &_selected {
+    background-color: var(--color-solid-primary);
+    color: var(--color-solid-light);
+
+    & .user-chat-item__date,
+    & .user-chat-item__message {
+      color: var(--color-solid-light);
+    }
+  }
+
+  &__avatar {
+    grid-area: chat-item-avatar;
+  }
+
+  &__name {
+    grid-area: chat-item-name;
+    font-family: 'Rubik-Bold';
+    font-size: 1rem;
+
+    @include mq(laptop) {
+      font-size: .875rem;
+    }
+  }
+
+  &__date {
+    grid-area: chat-item-date;
+    justify-self: end;
+    font-family: 'Rubik-Regular';
+    font-size: .875rem;
+    color: var(--color-solid-light-dark);
+
+    @include mq(laptop) {
+      font-size: .75rem;
+    }
+  }
+
+  &__message {
+    grid-area: chat-item-message;
+    font-family: 'Rubik-Regular';
+    font-size: .875rem;
+    white-space: nowrap;
+    overflow: hidden;
+    background-image: linear-gradient(to right, var(--color-solid-light-dark) 75%, rgba(0, 186, 187, 0) 100%);
+    background-clip: text;
+    color: transparent;
+
+    @include mq(laptop) {
+      font-size: .75rem;
+    }
+  }
+}
+
+@include body_dark(user-chat-item__date) {
+  color: #96A7AF;
+}
+
+@include body_dark(user-chat-item__message) {
+  background-image: linear-gradient(to right, #96A7AF 75%, rgba(0, 186, 187, 0) 100%);
+}

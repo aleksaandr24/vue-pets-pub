@@ -1,0 +1,38 @@
+@use '@/assets/styles/common' as *;
+
+.body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  background-color: var(--bg-color-primary);
+  transition: background-color 0.3s ease-in-out;
+  font-family: 'Rubik-Regular', Arial, Helvetica, sans-serif;
+  color: var(--color-primary);
+
+  &_loading {
+    overflow: hidden;
+    position: fixed;
+  }
+}
+
+.main {
+  grid-area: main;
+  min-height: 29.875rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  @include mq(xs) {
+    overflow-x: auto;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: var(--color-solid-primary);
+  }
+}

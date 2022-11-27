@@ -1,0 +1,203 @@
+@use '@/assets/styles/common' as *;
+
+.sidebar-mobile {
+  grid-area: sidebar;
+  
+  &__menu-icon {
+    width: 46px;
+    height: 46px;
+    padding: 30px 0 0 30px;
+
+    @include mq(tablet) {
+      padding: 57px 0 0 25px;
+    }
+
+    @include mq(mobile) {
+      width: 32px;
+      height: 32px;
+      padding: 64px 0 0 25px;
+    }
+  }
+
+  &__menu-button {
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    background-image: url('@/assets/images/TheSidebar/menu-mobile.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(120%);
+    }
+
+    @include mq(mobile) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+.mobile-menu {
+  transition: all 0.5s ease-in-out;
+  z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  padding: 57px 0px 60px 25px;
+  background-color: var(--bg-color-primary);
+
+  @include mq(mobile) {
+    height: 100vh;
+    padding-top: 64px;
+  }
+
+  &__close-button {
+    width: 46px;
+    height: 46px;
+    margin-bottom: 58px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    background-image: url('@/assets/images/TheSidebar/menu-mobile-close.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(120%);
+    }
+
+    @include mq(mobile) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  &__container {
+    height: calc(100% - 60px - 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__list {
+    width: 99px;
+    min-height: 268px;
+    margin-bottom: 27px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &__item {
+    width: 100%;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &:hover {
+      filter: brightness(120%);
+    }
+  }
+
+  &__title {
+    padding-left: 10px;
+    font-family: 'Rubik-Bold';
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  &__home {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-image: url('@/assets/images/TheSidebar/menu-home-dark.svg'), var(--color-gradient-purple);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    background-size: 55%, 100%;
+  }
+
+  &__pets {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-image: url('@/assets/images/TheSidebar/menu-pets-dark.svg'), var(--color-gradient-orange);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    background-size: 55%, 100%;
+  }
+
+  &__blog {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-image: url('@/assets/images/TheSidebar/menu-blog-dark.svg'), var(--color-gradient-yellow);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    background-size: 55%, 100%;
+  }
+
+  &__chat {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-image: url('@/assets/images/TheSidebar/menu-chat-dark.svg'), var(--color-gradient-pink);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    background-size: 55%, 100%;
+  }
+
+  &__profile {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-image: url('@/assets/images/TheSidebar/menu-profile-dark.svg'), var(--color-gradient-green);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center;
+    background-size: 55%, 100%;
+  }
+
+  &__logout-item {
+    width: 99px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(120%);
+    }
+  }
+
+  &__logout {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: var(--color-solid-primary);
+    background-image: url('@/assets/images/TheSidebar/logout-dark.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 55%;
+  }
+}
+
+.mobile-menu-enter-from,
+.mobile-menu-leave-to {
+  opacity: 0;
+  left: -100%;
+}

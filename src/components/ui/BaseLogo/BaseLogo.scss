@@ -1,0 +1,43 @@
+@use '@/assets/styles/common' as *;
+
+.base-logo {
+  width: 25px;
+  height: 25px;
+  background-image: url('@/assets/images/BaseLogo/logo-sm-black.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+
+  &_md {
+    width: 42px;
+    height: 42px;
+    background-image: url('@/assets/images/BaseLogo/logo-md-black.svg');
+  }
+
+  &_lg {
+    width: 105px;
+    height: 95px;
+    background-image: url('@/assets/images/BaseLogo/logo-lg-black.svg');
+  }
+
+  &_xl {
+    width: 185px;
+    height: 166px;
+    background-image: url('@/assets/images/BaseLogo/logo-xl-black.svg');
+  }
+}
+
+@include body_dark(base-logo) {
+  background-image: url('@/assets/images/BaseLogo/logo-sm.svg');
+
+  &_md {
+    background-image: url('@/assets/images/BaseLogo/logo-md.svg');
+  }
+
+  &_lg {
+    background-image: url('@/assets/images/BaseLogo/logo-lg.svg');
+  }
+
+  &_xl {
+    background-image: url('@/assets/images/BaseLogo/logo-xl.svg');
+  }
+}

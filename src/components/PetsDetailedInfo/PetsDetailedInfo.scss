@@ -1,0 +1,325 @@
+@use '@/assets/styles/common' as *;
+
+.pet-info {
+  width: 100%;
+  height: 100%;
+  max-height: 800px;
+  display: grid;
+  grid-template-rows: repeat(5, auto) 1fr auto;
+
+  @include mq(laptop) {
+    max-height: 760px;
+  }
+  
+  @include mq(tablet) {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  &__title {
+    font-family: 'Rubik-Bold';
+    font-weight: 700;
+    font-size: 72px;
+
+    @include mq(laptop) {
+      font-size: 40px;
+    }
+
+    @include mq(mobile) {
+      font-size: 34px;
+    }
+
+    &_primary {
+      color: var(--color-solid-primary);
+    }
+
+    &_secondary {
+      white-space: nowrap;
+    }
+  }
+
+  &__type {
+    margin-top: 15px;
+    font-family: 'Rubik-Medium';
+    font-size: 32px;
+    line-height: 38px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    @include mq(laptop) {
+      font-size: 20px;
+      line-height: 24px;
+    }
+
+    @include mq(tablet) {
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    @include mq(mobile) {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__likes {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+  }
+
+  &__badge-like {
+    width: 25px;
+    height: 24px;
+
+    @include mq(laptop) {
+      width: 22px;
+      height: 20px;
+    }
+
+    @include mq(tablet) {
+      width: 15px;
+      height: 15px;
+    }
+
+    @include mq(mobile) {
+      width: 14px;
+      height: 13px;
+    }
+  }
+
+  &__counter {
+    font-family: 'Rubik-Medium';
+    font-size: 32px;
+    line-height: 35px;
+
+    @include mq(laptop) {
+      font-size: 20px;
+    }
+
+    @include mq(tablet) {
+      font-size: 18px;
+    }
+
+    @include mq(mobile) {
+      font-size: 14px;
+    }
+  }
+
+  &__price {
+    font-family: 'Rubik-Medium';
+    font-size: 32px;
+    line-height: 35px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    @include mq(laptop) {
+      font-size: 20px;
+    }
+
+    @include mq(tablet) {
+      font-size: 18px;
+    }
+
+    @include mq(mobile) {
+      font-size: 14px;
+    }
+  }
+
+  &__props {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--color-solid-lightgray);
+    display: grid;
+    grid-template-columns: 135px 62px 155px;
+    grid-template-rows: 36px;
+    column-gap: 30px;
+    row-gap: 15px;
+    font-family: 'Rubik-Medium';
+    font-size: 32px;
+    line-height: 35px;
+
+    @include mq(laptop) {
+      grid-template-columns: 92px 45px 92px;
+      grid-template-rows: 24px;
+      font-size: 22px;
+    }
+
+    @include mq(mobile) {
+      grid-template-columns: 52px 25px 52px;
+      grid-template-rows: 15px;
+      font-size: 12px;
+    }
+  }
+
+  &__age-title {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+
+  &__age-value {
+    grid-column: 1 / 2;
+    grid-row: 2;
+
+    @include mq(laptop) {
+      font-size: 20px;
+    }
+
+    @include mq(mobile) {
+      font-size: 12px;
+    }
+  }
+
+  &__weight-title {
+    grid-column: 2 / 3;
+    grid-row: 1;
+  }
+
+  &__weight-value {
+    grid-column: 2 / 3;
+    grid-row: 2;
+
+    @include mq(laptop) {
+      font-size: 20px;
+    }
+
+    @include mq(mobile) {
+      font-size: 12px;
+    }
+  }
+
+  &__sex-title {
+    grid-column: 3 / -1;
+    grid-row: 1;
+  }
+
+  &__sex-value {
+    grid-column: 3 / -1;
+    grid-row: 2;
+
+    @include mq(laptop) {
+      font-size: 20px;
+    }
+
+    @include mq(mobile) {
+      font-size: 12px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    font-family: 'Rubik-Medium';
+    font-size: 32px;
+    line-height: 35px;
+
+    @include mq(laptop) {
+      font-size: 22px;
+    }
+
+    @include mq(tablet) {
+      font-size: 20px;
+    }
+
+    @include mq(mobile) {
+      font-size: 12px;
+    }
+  }
+
+  &__text {
+    max-height: 40vmin;
+    font-family: 'Rubik-Regular';
+    font-size: 32px;
+    line-height: 45px;
+    color: var(--color-solid-light-dark);
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word;
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      max-height: 32px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: var(--color-solid-primary);
+    }
+
+    @include mq(laptop) {
+      font-size: 22px;
+      line-height: 31px;
+    }
+
+    @include mq(tablet) {
+      max-height: none;
+      height: auto;
+      font-size: 20px;
+      line-height: 28px;
+    }
+
+    @include mq(mobile) {
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  &__buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  &__button {
+    width: 410px;
+    height: 48px;
+
+    @include mq(laptop) {
+      width: 439px;
+    }
+
+    @include mq(tablet) {
+      width: 720px;
+    }
+
+    @include mq(mobile) {
+      width: 325px;
+    }
+  }
+}
+
+@include body_dark(pet-info__props) {
+  border-top-color: var(--color-solid-light-dark);
+}
+
+@include body_dark(pet-info__text) {
+  color: var(--color-solid-light);
+}
+
+.pet-name-svg {
+  width: 46px;
+  height: 64px;
+
+  @include mq(laptop) {
+    width: 25px;
+    height: 35px;
+  }
+
+  @include mq(mobile) {
+    width: 20px;
+    height: 30px;
+  }
+}
+
+.pet-name-icon {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+}

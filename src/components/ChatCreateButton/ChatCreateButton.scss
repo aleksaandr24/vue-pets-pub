@@ -1,0 +1,23 @@
+@use '@/assets/styles/common' as *;
+
+.chat-new-button {
+  grid-area: new-chat-button;
+  border-radius: 10px;
+  border-width: 0;
+  background-color: var(--bg-color-secondary);
+  background-image: url('@/assets/images/ChatNewButton/chat-new-button.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  transition: all ease 0.4s;
+  
+  &:hover,
+  &_active {
+    background-color: var(--color-solid-primary);
+    background-image: url('@/assets/images/ChatNewButton/chat-new-button-dark.svg');
+  }
+}
+
+@include body_dark(chat-new-button) {
+  background-image: url('@/assets/images/ChatNewButton/chat-new-button-dark.svg');
+}

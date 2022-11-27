@@ -1,0 +1,27 @@
+@use '@/assets/styles/common' as *;
+
+.chat-creation-item {
+  height: 3.25rem;
+  margin-bottom: .9375rem;
+  padding-inline: .625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.0625rem;
+  transition: background 0.4 ease;
+
+  &:hover {
+    background-color: var(--color-solid-primary);
+    
+    & .chat-creation-item__name {
+      color: var(--color-solid-white);
+    }
+  }
+
+  &__name {
+    flex-grow: 1;
+    font-family: 'Rubik-Regular';
+    font-size: 1rem;
+    color: var(--color-primary);
+  }
+}

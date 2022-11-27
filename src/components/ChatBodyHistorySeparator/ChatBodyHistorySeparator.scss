@@ -1,0 +1,29 @@
+@use '@/assets/styles/common' as *;
+
+.chat-history {
+  
+  &__date-separator {
+    position: relative;
+    margin-bottom: .625rem;
+  }
+  
+  &__date-separator-line {
+    border-width: 0;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--chat-dialog-date-separator);
+  }
+
+  &__date-separator-title {
+    position: absolute;
+    top: -0.4375rem;
+    left: 40%;
+    z-index: 10;
+    padding-inline: .9375rem;
+    width: fit-content;
+    background-color: var(--bg-color-secondary);
+    font-family: 'Rubik-Regular';
+    font-size: .75rem;
+    color: var(--color-secondary);
+  }
+}

@@ -1,0 +1,25 @@
+@use '@/assets/styles/common' as *;
+
+.carousel-control {
+  width: 46px;
+  height: 46px;
+  border: none;
+  border-radius: 100px;
+  background-color: var(--color-solid-primary);
+  background-image: url('@/assets/images/CarouselControl/carousel-next.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(150%);
+  }
+
+  &_prev {
+    transform: rotate(180deg);
+  }
+}
+
+@include body_dark(carousel-control) {
+  background-color: var(--color-solid-light-dark);
+}

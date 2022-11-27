@@ -1,0 +1,131 @@
+@use '@/assets/styles/common' as *;
+
+.sidebar {
+  grid-area: sidebar;
+  border-right-width: 1px;
+  border-right-style: solid;
+  border-right-color: var(--color-solid-lightgray);
+  transition: all 0.3s ease-in-out;
+  display: grid;
+  grid-template-rows: 156px minmax(420px, 1fr) auto;
+  justify-items: center;
+
+  @include mq(laptop) {
+    grid-template-rows: 151px minmax(420px, 1fr) auto;
+  }
+  
+  &__logo {
+    height: 126px;
+    padding-top: 30px;
+
+    & .base-logo {
+      transition: all 0.4s ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__menu {
+    height: 372px;
+  }
+
+  &__logout {
+    padding-bottom: 30px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover {
+      transform: scaleX(1.3) translateX(-20%);
+    }
+  }
+}
+
+.menu-list {
+  height: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__item {
+    width: 60px;
+    height: 58px;
+  }
+  
+  &__link {
+    border-radius: 13px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: all 0.4s ease;
+
+    &:hover, &.router-link-active {
+      background-color: var(--color-solid-primary);
+    }
+  }
+
+  &__home {
+    background-image: url('@/assets/images/TheSidebar/menu-home.svg');
+
+    &:hover, &.router-link-active {
+      background-image: url('@/assets/images/TheSidebar/menu-home-dark.svg');
+    }
+  }
+
+  &__pets {
+    background-image: url('@/assets/images/TheSidebar/menu-pets.svg');
+
+    &:hover, &.router-link-active {
+      background-image: url('@/assets/images/TheSidebar/menu-pets-dark.svg');
+    }
+  }
+
+  &__blog {
+    background-image: url('@/assets/images/TheSidebar/menu-blog.svg');
+
+    &:hover, &.router-link-active {
+      background-image: url('@/assets/images/TheSidebar/menu-blog-dark.svg');
+    }
+  }
+
+  &__chat {
+    background-image: url('@/assets/images/TheSidebar/menu-chat.svg');
+
+    &:hover, &.router-link-active {
+      background-image: url('@/assets/images/TheSidebar/menu-chat-dark.svg');
+    }
+  }
+
+  &__profile {
+    background-image: url('@/assets/images/TheSidebar/menu-profile.svg');
+
+    &:hover, &.router-link-active {
+      background-image: url('@/assets/images/TheSidebar/menu-profile-dark.svg');
+    }
+  }
+}
+
+@include body_dark(sidebar) {
+  border-right-color: var(--color-solid-light-dark);
+}
+
+@include body_dark(menu-list__home) {
+  background-image: url('@/assets/images/TheSidebar/menu-home-dark.svg');
+}
+
+@include body_dark(menu-list__pets) {
+  background-image: url('@/assets/images/TheSidebar/menu-pets-dark.svg');
+}
+
+@include body_dark(menu-list__blog) {
+  background-image: url('@/assets/images/TheSidebar/menu-blog-dark.svg');
+}
+
+@include body_dark(menu-list__chat) {
+  background-image: url('@/assets/images/TheSidebar/menu-chat-dark.svg');
+}
+
+@include body_dark(menu-list__profile) {
+  background-image: url('@/assets/images/TheSidebar/menu-profile-dark.svg');
+}

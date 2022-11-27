@@ -1,0 +1,32 @@
+.badge-label {
+  min-width: 80px;
+  height: 22px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;  
+  font-family: 'Rubik-Regular';
+  font-weight: 400;
+  font-size: 15px;
+
+  &_purple {
+    background-color: #D665FF;
+  }
+
+  &_orange {
+    background-color: #F16063;
+  }
+
+  &_blue {
+    background-color: #4C6FFF;
+  }
+
+  &_pink {
+    background-color: #FF3D9A;
+  }
+
+  &_green {
+    background-color: #24E795;
+  }
+}

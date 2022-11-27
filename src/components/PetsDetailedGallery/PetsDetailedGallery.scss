@@ -1,0 +1,263 @@
+@use '@/assets/styles/common' as *;
+
+.pet-gallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  &__swiper {
+    width: 606px;
+    height: 800px;
+    overflow: visible;
+    overflow-anchor: none;
+    overflow-block: hidden;
+
+    @include mq(laptop) {
+      width: 627px;
+      height: 760px;
+    }
+
+    @include mq(tablet) {
+      width: 100vw;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    @include mq(mobile) {
+      height: 290px;
+    }
+
+    & .swiper-pagination {
+      z-index: 200;
+      position: absolute;
+      bottom: 30px;
+      height: 20px;
+      min-width: 104px !important;
+  
+      @include mq(laptop) {
+        min-width: 40px !important;
+      }
+      
+      @include mq(tablet) {
+        min-width: 30px !important;
+        bottom: 8px;
+      }
+  
+      @include mq(mobile) {
+        min-width: 17px !important;
+        bottom: 10px;
+      }
+      
+      & .swiper-pagination-bullet {
+        opacity: 1;
+        background: var(--color-solid-primary);
+      }
+  
+      & .swiper-pagination-bullet-active-main {
+        width: 20px;
+        height: 20px;
+  
+        @include mq(tablet) {
+          width: 6px;
+          height: 6px;
+        }
+        
+        @include mq(mobile) {
+          width: 4px;
+          height: 4px;
+        }
+      }
+  
+      & .swiper-pagination-bullet-active-prev {
+        width: 15px;
+        height: 15px;
+  
+        @include mq(tablet) {
+          width: 5px;
+          height: 5px;
+        }
+        
+        @include mq(mobile) {
+          width: 3px;
+          height: 3px;
+        }
+      }
+  
+      & .swiper-pagination-bullet-active-prev-prev {
+        width: 4px;
+        height: 4px;
+  
+        @include mq(mobile) {
+          width: 2px;
+          height: 2px;
+        }
+      }
+  
+      & .swiper-pagination-bullet-active-next {
+        width: 15px;
+        height: 15px;
+  
+        @include mq(tablet) {
+          width: 5px;
+          height: 5px;
+        }
+        
+        @include mq(mobile) {
+          width: 3px;
+          height: 3px;
+        }
+      }
+  
+      & .swiper-pagination-bullet-active-next-next {
+        width: 10px;
+        height: 10px;
+  
+        @include mq(tablet) {
+          width: 4px;
+          height: 4px;
+        }
+        
+        @include mq(mobile) {
+          width: 2px;
+          height: 2px;
+        }
+      }
+    }
+  }
+
+  &__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+
+  &__img {
+    z-index: 1;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__control {
+    z-index: 1000;
+    position: absolute;
+    top: 45%;
+    transition: opacity 0.5s ease-in-out;
+
+    @include mq(tablet) {
+      top: 24px;
+      width: 40px;
+      height: 40px;
+      background-color: var(--color-solid-light);
+      background-image: url('@/assets/images/PetsDetailedGallery/pets-gallery-next.svg');
+      transform: rotate(180deg);
+
+      &_prev {
+        transform: rotate(360deg);
+      }
+    }
+
+    @include mq(mobile) {
+      top: 20px;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0;
+    }
+
+    &_prev {
+      left: 4%;
+
+      @include mq(laptop) {
+        left: 0;
+      }
+
+      @include mq(tablet) {
+        left: 24px;
+      }
+
+      @include mq(mobile) {
+        left: 20px;
+      }
+    }
+
+    &_next {
+      right: 4%;
+
+      @include mq(laptop) {
+        right: 0;
+      }
+
+      @include mq(tablet) {
+        right: 24px;
+      }
+
+      @include mq(mobile) {
+        right: 20px;
+      }
+    }
+  }
+}
+
+@include body_dark(pet-gallery__control) {
+  background-color: var(--color-solid-primary);
+
+  @include mq(tablet) {
+    background-color: var(--color-solid-light);
+  }
+}
+
+.pet-gallery-single {
+  z-index: 2;
+  position: relative;
+  width: 710px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  @include mq(laptop) {
+    width: 670px;
+    height: 760px;
+  }
+
+  @include mq(tablet) {
+    width: 100vw;
+    height: 400px;
+  }
+
+  @include mq(mobile) {
+    height: 290px;
+  }
+
+  &__img {
+    z-index: 1;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    display: block;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+
+    @include mq(tablet) {
+      border-radius: 20px;
+    }
+  }
+}

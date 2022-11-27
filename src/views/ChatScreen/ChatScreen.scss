@@ -1,0 +1,66 @@
+@use '@/assets/styles/common' as *;
+
+.chat {
+  padding-inline: 1.875rem;
+  padding-bottom: 1.875rem;
+  display: grid;
+  grid-template-areas: 'left-panel conversation-panel';
+  grid-template-columns: 25.625rem 53.75rem;
+  grid-template-rows: minmax(28rem, 1fr);
+  gap: 2.5rem;
+
+  @include mq(laptop) {
+    padding-inline: 1.563rem;
+    padding-bottom: 1.563rem;
+    grid-template-columns: 20.312rem minmax(auto, 53.75rem);
+    gap: 1.25rem;
+  }
+
+  @include mq(tablet) {
+    padding-bottom: 3.687rem;
+    grid-template-areas: 'single-panel';
+    grid-template-columns: minmax(20.312rem, auto);
+  }
+  
+  &__side-panel {
+    grid-area: left-panel;
+  }
+
+  &__conversation-panel {
+    grid-area: conversation-panel;
+  }
+
+  &__side-panel,
+  &__conversation-panel {
+    position: relative;
+    
+    @include mq(tablet) {
+      grid-area: single-panel;
+    }
+
+    &_down {
+      z-index: 1;
+      display: none;
+    }
+
+    &_up {
+      z-index: 2;
+    }
+  }
+}
+
+.side-panel-enter-from,
+.side-panel-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+.side-panel-enter-active,
+.side-panel-leave-active {
+  transition: all 1s ease-in-out;
+}
+
+.side-panel-enter-to,
+.side-panel-leave-from {
+  opacity: 1;
+}

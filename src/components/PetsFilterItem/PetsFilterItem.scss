@@ -1,0 +1,38 @@
+@use '@/assets/styles/common' as *;
+
+.pets-filter-item {
+  width: 73px;
+  height: 73px;
+  border-radius: 5px;
+  background-color: var(--bg-color-secondary);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Rubik-Bold';
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 14px;
+  cursor: pointer;
+
+  @include mq(laptop) {
+    width: 95px;
+    height: 91px;
+  }
+
+  &:hover, &_checked {
+    background-color: var(--color-solid-primary);
+    color: var(--color-solid-light);
+  }
+
+  &_checked:hover {
+    filter: brightness(120%);
+  }
+
+  &__icon {
+    width: 42px;
+    height: 42px;
+  }
+}

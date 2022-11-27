@@ -1,0 +1,42 @@
+@use '@/assets/styles/common' as *;
+
+.app {
+  height: 100vh;
+  display: grid;
+  grid-template-areas:
+    'sidebar header'
+    'sidebar main';
+  grid-template-columns: 100px 1fr;
+  grid-template-rows: 156px 1fr;
+
+  @include mq(laptop) {
+    grid-template-rows: 151px 1fr;
+  }
+  
+  @include mq(tablet) {
+    grid-template-areas:
+    'sidebar header'
+    'main main';
+    grid-template-columns: 70px 1fr;
+    grid-template-rows: 144px 1fr;
+  }
+
+  @include mq(tablet) {
+    grid-template-rows: 136px 1fr;
+  }
+
+  &_only-main {
+    grid-template: 'main' 1fr / 1fr;
+  }
+}
+
+.ct-enter-active,
+.ct-leave-active {
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
+.ct-enter-from,
+.ct-leave-to {
+  opacity: 0;
+}

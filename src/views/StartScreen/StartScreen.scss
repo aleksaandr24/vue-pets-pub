@@ -1,0 +1,67 @@
+@use '@/assets/styles/common' as *;
+
+.start {
+  width: 100%;
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: minmax(221px, 1fr) 258px 1fr;
+  justify-content: center;
+
+  &__logo {
+    min-height: 166px;
+    justify-self: center;
+    align-self: end;
+  }
+
+  &__caption {
+    height: 94px;
+    padding: 32px 0px 132px 0px;
+    text-align: center;
+  }
+
+  &__title {
+    font-family: 'Rubik-Bold';
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 40px;
+    color: var(--accent-color)
+  }
+
+  &__subtitle {
+    font-family: 'Rubik-Medium';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--color-secondary);
+  }
+
+  &__links {
+    height: 175px;
+    justify-self: center;
+    text-align: center;
+  }
+
+  &__button {
+    width: 325px;
+    height: 48px;
+  }
+
+  &__button-link {
+    text-decoration: none;
+  }
+
+  &__text {
+    padding-top: 18px;
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--color-secondary);
+  }
+
+  &__link {
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+}

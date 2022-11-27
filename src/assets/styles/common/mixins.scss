@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use './variables.scss' as *;
+
+@mixin mq($key) {
+  $size: map.get($breakpoints, $key);
+  @media (max-width: $size) {
+    @content
+  }
+}
+
+@mixin body_dark($class) {
+  body[theme="dark"] .#{$class} {
+    @content
+  }
+}

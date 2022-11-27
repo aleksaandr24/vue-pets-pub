@@ -1,0 +1,58 @@
+@use '@/assets/styles/common' as *;
+
+.chat-history-message-container {
+  display: flex;
+  flex-direction: row;
+  gap: .625rem
+}
+
+.chat-history {
+  
+  &__message {
+    width: fit-content;
+    max-width: 88%;
+    margin-bottom: .625rem;
+
+    &_outgoing {
+      margin-left: auto;
+
+      & .chat-history__message-text {
+        background-color: var(--color-solid-primary);
+        border-bottom-right-radius: 0;
+        color: var(--color-solid-white);
+      }
+
+      & .chat-history__message-time {
+        text-align: right;
+      }
+    }
+
+    &_incoming {
+      margin-right: auto;
+
+      & .chat-history__message-text {
+        border-bottom-left-radius: 0;
+        color: var(--chat-dialog-incoming-message);
+      }
+
+      & .chat-history__message-time {
+        text-align: left;
+      }
+    }
+  }
+
+  &__message-text {
+    padding: .75rem;
+    border: 2px solid var(--color-solid-primary);
+    border-radius: 13px;
+    font-family: 'Rubik-Regular';
+    font-size: .875rem;
+  }
+
+  &__message-time {
+    text-align: left;
+    font-family: 'Rubik-Regular';
+    font-size: .625rem;
+    color: var(--color-solid-lightgray);
+  }
+}

@@ -1,0 +1,162 @@
+.base-avatar {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &__circle {
+    border-radius: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1;
+    overflow: hidden;
+
+    &:hover {
+      filter: brightness(110%);
+    }
+
+    &_xs {
+      width: 24px;
+      height: 24px;
+    }
+
+    &_sm {
+      width: 32px;
+      height: 32px;
+    }
+
+    &_md {
+      width: 48px;
+      height: 48px;
+    }
+
+    &_lg {
+      width: 64px;
+      height: 64px;
+    }
+
+    &_xl {
+      width: 96px;
+      height: 96px;
+    }
+
+    &_xxl {
+      width: 128px;
+      height: 128px;
+    }
+    
+    &_purple {
+      background: var(--color-gradient-purple);
+    }
+
+    &_orange {
+      background: var(--color-gradient-orange);
+    }
+
+    &_yellow {
+      background: var(--color-gradient-yellow);
+    }
+
+    &_pink {
+      background: var(--color-gradient-pink);
+    }
+
+    &_green {
+      background: var(--color-gradient-green);
+    }
+  }
+
+  &__name {
+    font-family: 'Rubik-Bold';
+    font-weight: 700;
+    color: #FFFFFF;
+    text-transform: uppercase;
+
+    &_xs {
+      font-size: 10px;
+    }
+
+    &_sm {
+      font-size: 12px;
+    }
+
+    &_md {
+      font-size: 16px;
+    }
+
+    &_lg {
+      font-size: 20px;
+    }
+
+    &_xl {
+      font-size: 30px;
+    }
+
+    &_xxl {
+      font-size: 44px;
+    }
+  }
+
+  &__badge {
+    border-radius: 50%;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    background-color: #22C55E;
+    border-style: solid;
+    border-color: #FAFAF9;
+
+    &_xs {
+      width: 6px;
+      height: 6px;
+      border-width: 1px;
+      left: 53%;
+    }
+
+    &_sm {
+      width: 8px;
+      height: 8px;
+      border-width: 1px;
+      left: 54%;
+    }
+
+    &_md {
+      width: 12px;
+      height: 12px;
+      border-width: 2px;
+      left: 55%;
+    }
+
+    &_lg {
+      width: 16px;
+      height: 16px;
+      border-width: 2px;
+      left: 58%;
+    }
+
+    &_xl {
+      width: 24px;
+      height: 24px;
+      border-width: 4px;
+      left: 60%;
+    }
+
+    &_xxl {
+      width: 32px;
+      height: 32px;
+      border-width: 5px;
+      left: 65%;
+    }
+  }
+
+  &__picture {
+    max-width: none;
+    min-width: auto;
+    min-height: auto;
+    height: 100%;
+  }
+}

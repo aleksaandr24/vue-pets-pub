@@ -1,0 +1,19 @@
+.base-input {
+  padding-left: 8px;
+  background: transparent;
+  border: none;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  
+  &:focus {
+    outline: none;
+  }
+
+  &__message {
+    position: absolute;
+    right: 0;
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 8px;
+  }
+}

@@ -1,0 +1,48 @@
+@use '@/assets/styles/common' as *;
+
+.pets-detailed {
+  display: grid;
+  grid-template-columns: 710px 1fr;
+  column-gap: 40px;
+  padding: 0px 30px 30px 30px;
+  overflow: hidden;
+
+  @include mq(laptop) {
+    grid-template-columns: 670px 1fr;
+    column-gap: 20px;
+    padding: 0px 25px 25px 25px;
+  }
+
+  @include mq(tablet) {
+    grid-template-columns: none;
+    grid-template-rows: 400px 1fr;
+    row-gap: 30px;
+    overflow-y: auto;
+    padding: 0px 0px 25px 0px;
+  }
+  
+  @include mq(mobile) {
+    grid-template-rows: 290px 1fr;
+  }
+
+  @media screen and (max-height: 1079px) {
+    overflow-y: auto;
+  }
+
+  &__gallery {
+    grid-column: 1 / 2;
+    align-self: start;
+
+    @include mq(tablet) {
+      grid-row: 1;
+    }
+  }
+
+  &__description {
+    grid-column: 2 / -1;
+    
+    @include mq(tablet) {
+      grid-row: 2;
+    }
+  }
+}

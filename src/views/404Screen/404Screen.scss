@@ -1,0 +1,64 @@
+@use '@/assets/styles/common' as *;
+
+.error-404 {
+  display: grid;
+  grid-template-rows: auto 57px auto;
+  row-gap: 33px;
+  padding: 25px 0;
+
+  &__picture {
+    grid-row: 1;
+    justify-self: center;
+    align-self: end;
+  }
+
+  &__img {
+    @include mq(mobile) {
+      width: 80vw;
+      height: auto;
+    }
+  }
+
+  &__caption {
+    grid-row: 2;
+    justify-self: center;
+  }
+
+  &__title {
+    font-family: 'Rubik-Bold';
+    font-size: 48px;
+    line-height: 56px;
+    color: #1C3177;
+
+    @include mq(mobile) {
+      font-size: 24px;
+    }
+  }
+
+  &__message {
+    grid-row: 3;
+    justify-self: center;
+    align-self: start;
+  }
+
+  &__text {
+    width: 604px;
+    font-family: 'Rubik-Regular';
+    font-size: 24px;
+    text-align: center;
+    color: #284495;
+
+    @include mq(mobile) {
+      width: 80vw;
+      font-size: 20px;
+    }
+  }
+}
+
+@include body_dark(error-404__title) {
+  color: var(--color-solid-white);
+}
+
+@include body_dark(error-404__text) {
+  color: var(--color-solid-white);
+}

@@ -1,0 +1,139 @@
+@use '@/assets/styles/common' as *;
+
+.conversation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  animation-name: conversation-loading;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: 1;
+
+  &__header {
+    min-height: 3.125rem;
+    padding-top: .9375rem;
+    padding-left: 1.875rem;
+    padding-right: 1.0625rem;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    background-color: var(--color-solid-primary);
+    display: flex;
+    justify-content: space-between;
+    gap: 1.25rem;
+  }
+
+  &__back-btn {
+    display: none;
+
+    @include mq(tablet) {
+      display: block;
+    }
+  }
+
+  &__title {
+    flex-grow: 1;
+    font-family: 'Rubik-Bold';
+    font-size: 1rem;
+    color: var(--color-solid-white);
+  }
+
+  &__delete-btn {
+    
+  }
+
+  &__dialog {
+    flex-grow: 1;
+    max-height: 39.75rem;
+    padding-inline: 1.875rem;
+    padding-top: 1.875rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+    
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      border-radius: 2px;
+      background-color: var(--color-solid-primary);
+    }
+  }
+
+  &__message {
+    min-height: 3.125rem;
+    padding-inline: 1.875rem;
+    padding-top: .625rem;
+    padding-bottom: .625rem;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: var(--pie-empty-color);
+    transition: all 0.4s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: .625rem;
+  }
+
+  &__stickers-btn {
+    width: 1.875rem;
+  }
+
+  &__input-text {
+    flex-grow: 1;
+  }
+
+  &__smiles-btn {
+    width: 2rem;
+  }
+
+  &__send-btn {
+    width: 2rem;
+    text-align: center;
+  }
+}
+
+@keyframes conversation-loading {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.conversation-back-button {
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url('@/assets/images/ChatConversation/conversation-back-button.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scaleX(1.3) translateX(-20%);
+  }
+}
+
+.conversation-delete-button {
+  width: 1rem;
+  height: 1rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  background-image: url('@/assets/images/ChatConversation/conversation-delete-button.svg');
+  background-repeat: no-repeat;
+  background-position: center center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.4);
+  }
+}

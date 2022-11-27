@@ -1,0 +1,8 @@
+@use '@/assets/styles/common' as *;
+
+.chat-initial-text {
+  font-family: 'Rubik-Regular';
+  font-size: 1rem;
+  color: var(--color-secondary);
+  filter: brightness(50%);
+}

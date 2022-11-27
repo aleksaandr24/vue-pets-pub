@@ -1,0 +1,43 @@
+@use '@/assets/styles/common' as *;
+
+.notifications {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  &__circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 1;
+    background-color: var(--bg-color-secondary);
+    background-image: url('@/assets/images/TheHeaderNotifications/notifications.svg');
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  &__badge {
+    width: 8px;
+    height: 8px;
+    border-radius: 50px;
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    left: 70%;
+    background-color: var(--color-solid-danger);
+  }
+
+  @include mq(mobile) {
+    &__circle {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+@include body_dark(notifications__circle) {
+  background-image: url('@/assets/images/TheHeaderNotifications/notifications-dark.svg');
+}

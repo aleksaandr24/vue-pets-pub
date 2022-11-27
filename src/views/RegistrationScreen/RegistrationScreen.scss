@@ -1,0 +1,133 @@
+@use '@/assets/styles/common' as *;
+
+.registration {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 675px 1fr;
+
+  @include mq(laptop) {
+    grid-template-columns: minmax(570px, auto) minmax(710px, auto);
+  }
+
+  @include mq(tablet) {
+    grid-template-columns: 1fr;
+  }
+
+  &__left-column {
+    background-image: url('@/assets/images/RegistrationScreen/registration-background.png');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: cover;
+
+    @include mq(laptop) {
+      background-image: url('@/assets/images/RegistrationScreen/registration-background-laptop.png');
+      background-size: cover;
+    }
+    
+    @include mq(tablet) {
+      display: none;
+    }
+  }
+
+  &__right-column {
+    justify-self: center;
+    align-self: center;
+  }
+
+  &__container {
+    width: 326px;
+  }
+
+  &__logo {
+    margin-top: 30px;
+  }
+
+  &__caption {
+    padding: 30px 0px 20px 0px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    font-family: 'Rubik-Medium';
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 36px;
+    color: var(--accent-color);
+  }
+
+  &__subtitle {
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    color: var(--color-secondary);
+  }
+  
+  &__form {
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: var(--color-secondary);
+  }
+
+  &__fl {
+    margin-bottom: 20px;
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 15px;
+    color: var(--color-secondary);
+
+    &:nth-child(1), &:nth-child(2) {
+      margin-bottom: 34px;
+    }
+
+    &_success {
+      color: var(--color-solid-success);
+    }
+
+    &_danger {
+      color: var(--color-solid-danger);
+    }
+  }
+
+  &__input {
+    width: 98%;
+    height: 51px;
+    color: inherit;
+  }
+
+  &__button {
+    width: 325px;
+    height: 48px;
+    margin: 57px 0px 20px 0px;
+  }
+  
+  &__links {
+    margin-bottom: 40px;
+    font-family: 'Rubik-Regular';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+  }
+
+  &__text {
+    color: var(--color-secondary);
+  }
+
+  &__link {
+    min-height: 80px;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--accent-color);
+  }
+}
+
+@include body_dark(registration__left-column_dark) {
+  @include mq(laptop) {
+    background-image: url('@/assets/images/RegistrationScreen/registration-background-laptop-dark.png');
+    background-size: cover;
+  }
+}

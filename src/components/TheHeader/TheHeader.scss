@@ -1,0 +1,80 @@
+@use '@/assets/styles/common' as *;
+
+.header {
+  height: 46px;
+  padding: 30px 30px 0px 30px;
+  grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 110px 110px;
+  grid-gap: 40px;
+
+  @include mq(laptop) {
+    grid-template-columns: 1fr 95px 95px;
+    grid-gap: 20px;
+    padding: 25px 25px 0px 25px;
+  }
+
+  @include mq(tablet) {
+    grid-template-columns: 1fr 110px 110px;
+    grid-gap: 40px;
+    padding: 57px 24px 0px 24px;
+  }
+
+  @include mq(mobile) {
+    height: 32px;
+    padding: 64px 25px 0px 25px;
+    grid-template-columns: 1fr 77px 74px;
+    grid-gap: 20px;
+  }
+
+  &__page-name {
+    
+    @include mq(tablet) {
+      display: none;
+    }
+  }
+
+  &__page-title {
+    font-family: 'Rubik-Bold';
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 36px;
+  }
+
+  &__themes {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__icons {
+    width: 110px;
+    grid-column: 3 / 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include mq(laptop) {
+      width: 95px;
+    }
+
+    @include mq(tablet) {
+      width: 110px;
+    }
+    
+    @include mq(mobile) {
+      width: 74px;
+    }
+  }
+
+  &__avatar {
+    max-width: 46px;
+    max-height: 46px;
+  }
+}
+
+.title-link {
+  margin-right: 35px;
+  text-decoration: none;
+  color: inherit;
+}
