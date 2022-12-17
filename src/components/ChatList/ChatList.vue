@@ -1,6 +1,7 @@
 <template>
   <div class="chat-list">
     <ChatListSearch
+      v-model="inputSearchText"
       :disabled="state.userChatsStatus === 'loading'"
     />
     <ChatCreateButton
@@ -29,6 +30,7 @@
         :lastMsgUser="item.lastMsgUser"
         :lastMsgText="item.lastMsgText"
         :users="state.users"
+        :chatID="item.id"
         :chatName="item.name"
         :selected="item.id === activeChatID"
         @click="onSelectChat(item.id)"
@@ -42,7 +44,7 @@ import ChatListSearch from '@/components/ChatListSearch/ChatListSearch.vue'
 import ChatListItem from '@/components/ChatListItem/ChatListItem.vue'
 import ChatCreateButton from '@/components/ChatCreateButton/ChatCreateButton.vue'
 import SecondLoader from '@/components/ui/SecondLoader/SecondLoader.vue'
-import { reactive, computed } from 'vue'
+import { reactive, computed, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { firebaseStore } from '@/firebase'
 import { firestoreGetDocs } from '@/firebase/firestore'
@@ -78,8 +80,17 @@ export default {
       currUserGroups: [],
       userChatsStatus: 'loading',
       userChatsItems: {},
+      searchFilter: '',
       userChats: computed(() => Object.keys(state.userChatsItems)
-      .map(key => {const item = state.userChatsItems[key]; item.id = key; return item})
+      .map(key => {
+        const item = state.userChatsItems[key]
+        item.id = key
+        return item
+      })
+      .filter(item => {
+        if (state.searchFilter.length === 0) return item
+        else if (item.name.toLowerCase().includes(state.searchFilter)) return item
+      })
       .sort((a, b) => a.lastMsgDate.toDate() > b.lastMsgDate.toDate() ? -1 : 1))
     })
     
@@ -98,11 +109,29 @@ export default {
         } else state.userChatsStatus = 'empty'
       })
     })
+
+    const inputSearchText = ref('')
+    watch(inputSearchText, () => {
+      const debounce = (fn, delay) => {
+        let timeout = null
+        return (...args) => {
+          if (timeout) clearTimeout(timeout)
+          timeout = setTimeout(() => fn(...args), delay || 1000)
+        }
+      }
+      const delay = 1000
+      if (inputSearchText.value !== '') {
+        debounce(() => state.searchFilter = inputSearchText.value.toLowerCase(), delay)()
+      } else {
+        debounce(() => state.searchFilter = '', delay)()
+      }
+    })
     
     return {
       state,
       onCreateChat: () => emit('createChat'),
-      onSelectChat: (id) => emit('selectChat', id)
+      onSelectChat: (id) => emit('selectChat', id),
+      inputSearchText
     }
   }
 }

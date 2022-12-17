@@ -6,6 +6,10 @@
     <div
       class="user-chat-item__avatar"
     >
+      <img
+        :src="chatAvatarLink"
+        class="user-chat-item__img"
+      />
     </div>
     <div class="user-chat-item__name">{{ chatName }}</div>
     <div class="user-chat-item__date">{{ lastMsgDateField }}</div>
@@ -15,8 +19,10 @@
 
 <script>
 import BaseCard from '@/components/ui/BaseCard/BaseCard.vue'
-import { computed, toRef } from 'vue'
+import { computed, toRef, ref, onMounted } from 'vue'
 import { useStore } from 'vuex'
+import { storage } from '@/firebase'
+import { ref as storageRef, getDownloadURL } from 'firebase/storage'
 
 export default {
   name: 'ChatListItem',
@@ -30,6 +36,7 @@ export default {
     lastMsgUser: String,
     lastMsgText: String,
     chatName: String,
+    chatID: String,
     users: Object,
     selected: {
       type: Boolean,
@@ -42,6 +49,7 @@ export default {
     const lastMsgDate = toRef(props, 'lastMsgDate')
     const lastMsgUser = toRef(props, 'lastMsgUser')
     const lastMsgText = toRef(props, 'lastMsgText')
+    const chatID = toRef(props, 'chatID')
     const users = toRef(props, 'users')
     const userUID = computed(() => store.getters.getUserUID)
     const today = new Date()
@@ -70,9 +78,17 @@ export default {
     
     const lastMsgTextField = computed(() => `${lastMsgUserName.value}: ${lastMsgText.value}`)
 
+    const chatAvatarLink = ref()
+    onMounted(async () => {
+      const childRef = `/chat_avatars/${chatID.value}.jpg`
+      const url = await getDownloadURL(storageRef(storage, childRef))
+      chatAvatarLink.value = url
+    })
+    
     return {
       lastMsgDateField,
-      lastMsgTextField
+      lastMsgTextField,
+      chatAvatarLink
     }
   }
 }

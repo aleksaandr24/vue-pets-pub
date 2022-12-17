@@ -6,7 +6,9 @@
       <IconChatSearch/>
     </IconBase>
     <input
+      v-model="inputSearch"
       :disabled="disabled"
+      @update:model-value="$emit('update:modelValue', inputSearch)"
       class="chat-search-panel__input"
       type="text"
       placeholder="Поиск..."
@@ -18,6 +20,7 @@
 import BaseCard from '@/components/ui/BaseCard/BaseCard.vue'
 import IconBase from '@/components/ui/IconBase/IconBase.vue'
 import IconChatSearch from '@/components/ui/IconChatSearch/IconChatSearch.vue'
+import { ref } from 'vue'
 
 export default {
   name: 'ChatListSearch',
@@ -35,9 +38,13 @@ export default {
     }
   },
 
+  emits: ['update:modelValue'],
+
   setup() {
-    
+    const inputSearch = ref('')
+
     return {
+      inputSearch,
       iconChatSearchProps: {
         width: {
           'desktop': 16,

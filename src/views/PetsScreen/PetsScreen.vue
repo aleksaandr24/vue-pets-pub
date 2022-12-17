@@ -115,12 +115,8 @@ export default {
       const debounce = (fn, delay) => {
         let timeout = null
         return (...args) => {
-          if (timeout) {
-            clearTimeout(timeout)
-          }
-          timeout = setTimeout(() => {
-            fn(...args)
-          }, delay || 1000)
+          if (timeout) clearTimeout(timeout)
+          timeout = setTimeout(() => fn(...args), delay || 1000)
         }
       }
       debounce(() => {

@@ -3,8 +3,10 @@ import { firestoreAddDoc,
         firestoreAddSubDoc,
         firestoreGetUser,
         firestoreUpdateDoc } from '@/firebase/firestore'
+import { storage } from '@/firebase'
+import { ref, uploadString } from "firebase/storage"
 
-export default async function useCreateChat(groupName, members, creator) {
+export default async function useCreateChat(groupName, members, creator, avatar) {
   members.push(creator)
   
   const groupsItem = {
@@ -31,5 +33,7 @@ export default async function useCreateChat(groupName, members, creator) {
     await firestoreUpdateDoc('users', uid, {groupsID: userGroups})
   }
   
+  const storageRef = ref(storage, `/chat_avatars/${createdGroup.id}.jpg`)
+  await uploadString(storageRef, avatar.split(',')[1], 'base64', {contentType: 'image/jpeg'})
   return createdGroup.id
 }

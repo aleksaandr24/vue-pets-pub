@@ -4,6 +4,8 @@ import { firestoreDeleteDoc,
         firestoreGetSubDocs, 
         firestoreGetUser,
         firestoreUpdateDoc} from '@/firebase/firestore'
+import { storage } from '@/firebase'
+import { ref, deleteObject } from "firebase/storage"
 
 export default async function useDeleteChat(chatID) {
   const group = await firestoreGetDoc('groups', chatID)
@@ -21,4 +23,7 @@ export default async function useDeleteChat(chatID) {
 
   firestoreDeleteDoc('messages', chatID)
   await firestoreDeleteDoc('groups', chatID)
+
+  const storageRef = ref(storage, `/chat_avatars/${chatID}.jpg`)
+  await deleteObject(storageRef)
 }

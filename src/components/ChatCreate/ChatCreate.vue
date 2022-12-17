@@ -1,6 +1,10 @@
 <template>
   <div class="chat-creation">
-    <div :disabled="createChatInProgress" class="chat-creation__picture"></div>
+    <ChatCreatePicture
+      @uploadChatPicture="value => setChatAvatarFile(value)"
+      :disabled="createChatInProgress"
+      class="chat-creation__picture"
+    />
     <BaseCard class="chat-creation__name">
       <input
         v-model="chatName"
@@ -56,6 +60,7 @@
 </template>
 
 <script>
+import ChatCreatePicture from '@/components/ChatCreatePicture/ChatCreatePicture.vue'
 import ChatCreateButton from '@/components/ChatCreateButton/ChatCreateButton.vue'
 import ChatCreateItem from '@/components/ChatCreateItem/ChatCreateItem.vue'
 import BaseCard from '@/components/ui/BaseCard/BaseCard.vue'
@@ -69,6 +74,7 @@ export default {
   name: 'ChatCreate',
 
   components: {
+    ChatCreatePicture,
     ChatCreateButton,
     ChatCreateItem,
     BaseCard,
@@ -114,15 +120,23 @@ export default {
       if ((chatName.value.length > 0) && (minUsersChecked(usersChecked.value))) return false
       return true
     })
+    
+    const chatAvatarFile = ref('')
+    const setChatAvatarFile = (value) => {
+      chatAvatarFile.value = value.value
+    }
+
     const onCreateChat = async () => {
       createChatInProgress.value = true
-      const createdChatID = await useCreateChat(chatName.value, chatMembers.value, userUID.value)
+      const createdChatID = await useCreateChat(chatName.value, chatMembers.value, userUID.value, chatAvatarFile.value)
       emit('chatCreated', createdChatID)
     }
 
     const onCloseCreateChatClick = () => emit('closeCreateChat')
     
     return {
+      chatAvatarFile,
+      setChatAvatarFile,
       usersList,
       chatName,
       createBtnDisabled,

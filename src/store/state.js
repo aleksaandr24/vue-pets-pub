@@ -20,21 +20,21 @@ const state = {
     {id: 3, name: 'Игры', status: 'in-progress'},
   ],
 
-  postsAPI: 'https://aleksaandr24.github.io/data-temp/posts.json',
+  postsAPI: 'https://yvladandmir.github.io/dataForPets/posts.json',
 
   posts: [],
 
-  petsAPI: 'https://aleksaandr24.github.io/data-temp/animals.json',
+  petsAPI: 'https://yvladandmir.github.io/dataForPets/animals.json',
 
   pets: {},
 
-  userPetsAPI: 'https://aleksaandr24.github.io/data-temp/statistic.json',
+  userPetsAPI: 'https://yvladandmir.github.io/dataForPets/statistic.json',
 
   userPets: [],
 
   petsCategories: [],
 
-  petsCategoriesAPI: 'https://aleksaandr24.github.io/data-temp/groups.json'
+  petsCategoriesAPI: 'https://yvladandmir.github.io/dataForPets/groups.json'
 }
 
 export default state
